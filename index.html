@@ -80,24 +80,6 @@
             max-width: 1200px;
         }
 
-        .iit-tagline {
-            background: rgba(44, 82, 130, 0.05);
-            padding: 6px 12px;
-            border-radius: 3px;
-            margin-bottom: 20px;
-            display: inline-block;
-            border: 1px solid rgba(44, 82, 130, 0.2);
-        }
-
-        .iit-tagline p {
-            color: #2c5282;
-            font-size: 0.95rem;
-            font-weight: 500;
-            letter-spacing: 0.3px;
-            margin: 0;
-            line-height: 1.2;
-        }
-
         .hero-content h1 {
             font-size: 3.5rem;
             margin-bottom: 1.5rem;
@@ -116,8 +98,9 @@
 
         /* Process Section */
         .process {
-            padding: 5rem 5%;
+            padding: 5rem 5% 5rem;
             background: #ebf4ff;
+            position: relative;
         }
 
         .section-title {
@@ -131,7 +114,7 @@
             display: flex;
             justify-content: space-between;
             max-width: 1400px;
-            margin: 0 auto;
+            margin: 4rem auto 0;
             position: relative;
             gap: 2rem;
         }
@@ -160,6 +143,14 @@
             z-index: 1;
         }
 
+        .current-step-marker {
+            position: absolute;
+            top: -65px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+
         .step-number {
             width: 50px;
             height: 50px;
@@ -175,6 +166,17 @@
             z-index: 2;
         }
 
+        .step:first-child {
+            border: 2px solid #ffd700;
+            background: linear-gradient(to bottom, #ffffff, #f8fafc);
+        }
+
+        .step:first-child .step-number {
+            background: #ffd700;
+            color: #2c5282;
+            border: 2px solid #2c5282;
+        }
+
         .step h3 {
             color: #2c5282;
             margin-bottom: 1rem;
@@ -184,21 +186,6 @@
             color: #4a5568;
             line-height: 1.6;
             font-size: 0.9rem;
-        }
-
-        .step:first-child .step-number {
-            background: #ffd700;
-            color: #2c5282;
-        }
-
-        .step:first-child::before {
-            content: 'We are here';
-            position: absolute;
-            top: -4rem;
-            left: 50%;
-            transform: translateX(-50%);
-            color: #2c5282;
-            font-weight: bold;
         }
 
         /* Features Section */
@@ -372,12 +359,12 @@
                 bottom: 0;
                 left: 2.5rem;
                 width: 2px;
-                height: auto;
+                height: 100%;
             }
 
             .step {
-                text-align: left;
                 margin-left: 5rem;
+                text-align: left;
                 padding: 1.5rem;
             }
 
@@ -389,10 +376,10 @@
                 margin: 0;
             }
 
-            .step:first-child::before {
-                left: -3.5rem;
-                top: 50%;
-                transform: translateY(-150%);
+            .current-step-marker {
+                top: -45px;
+                left: -65px;
+                transform: none;
             }
 
             .features-grid {
@@ -431,6 +418,11 @@
                 width: 40px;
                 height: 40px;
                 left: -3rem;
+            }
+
+            .current-step-marker {
+                transform: scale(0.9);
+                left: -60px;
             }
         }
     </style>
@@ -480,6 +472,13 @@
         <h2 class="section-title">How It Works</h2>
         <div class="process-steps">
             <div class="step">
+                <svg class="current-step-marker" width="120" height="40" viewBox="0 0 120 40">
+                    <path
+                        d="M10,0 h100 a10,10 0 0 1 10,10 v10 a10,10 0 0 1 -10,10 h-40 l-10,10 l-10,-10 h-40 a10,10 0 0 1 -10,-10 v-10 a10,10 0 0 1 10,-10 z"
+                        fill="#2c5282" />
+                    <text x="60" y="22" text-anchor="middle" fill="white" font-size="14" font-family="Arial"
+                        font-weight="bold">We are here</text>
+                </svg>
                 <div class="step-number">1</div>
                 <h3>Customer Problem</h3>
                 <p>Problem provided by Customer through Survey</p>
@@ -496,7 +495,8 @@
                 <p>Engineered solution is now crafted as a Footwear</p>
             </div>
             <div class="step">
-                <div class="step-number">4</div>
+                <div class="step-number
+                    <div class=" step-number">4</div>
                 <h3>Delivered to Customer</h3>
                 <p>The footwear is now ready and delivered to the customer</p>
             </div>
